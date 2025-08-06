@@ -1,0 +1,16 @@
+This is a sample text file for testing purposes.
+It contains multiple sentences and paragraphs.
+
+The quick brown fox jumps over the lazy dog.
+This sentence contains all letters of the alphabet.
+
+Here's another paragraph with some numbers: 123, 456, 789.
+And some punctuation marks: !@#$%^&*()
+
+This file will be used to test:
+- Text analysis functionality
+- Word counting and statistics
+- Readability scoring
+- Text transformation operations
+
+The end of the sample file.
