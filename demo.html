@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Theme Toggle with LocalStorage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.light {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    body.dark {
+      background-color: #222222;
+      color: #ffffff;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .light button {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .dark button {
+      background-color: #fff;
+      color: #000;
+    }
+  </style>
+</head>
+<body class="light">
+  <h1 id="themeText">Light Mode</h1>
+  <button id="toggleBtn">Toggle Theme</button>
+
+  <script>
+    // Get saved theme from localStorage
+    const savedTheme = localStorage.getItem("theme");
+    const body = document.body;
+    const themeText = document.getElementById("themeText");
+    const toggleBtn = document.getElementById("toggleBtn");
+
+    // Apply saved theme if available
+    if (savedTheme) {
+      body.className = savedTheme;
+      themeText.textContent =
+        savedTheme.charAt(0).toUpperCase() + savedTheme.slice(1) + " Mode";
+    }
+
+    // Toggle theme on button click
+    toggleBtn.addEventListener("click", () => {
+      const newTheme = body.classList.contains("light") ? "dark" : "light";
+      body.className = newTheme;
+      themeText.textContent =
+        newTheme.charAt(0).toUpperCase() + newTheme.slice(1) + " Mode";
+      localStorage.setItem("theme", newTheme);
+    });
+  </script>
+</body>
+</html>
